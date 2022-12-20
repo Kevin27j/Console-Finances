@@ -90,12 +90,13 @@ var finances = [
 // 1. The total number of months included in the dataset.
 
     // create a variable to save total months
+    let totMonths = 0;
 
     // loop the array to access the dates
+    for (let i = 0; i < finances.length; i++){
+        totMonths++;
 
-        // grab the dates from each arrays in the dataset array
-        
-        // push to variable                    
+    }
         
 
 // 2. The net total amount of Profit/Losses over the entire period.
