@@ -94,12 +94,26 @@ var finances = [
 
     // loop the array to access the dates
     for (let i = 0; i < finances.length; i++){
+
         totMonths++;
 
     }
         
 
 // 2. The net total amount of Profit/Losses over the entire period.
+
+    // Create variable to store total amount
+    let totMoney = [];
+
+    // Loop through array and get each Profit/Losses value
+    for (let i = 0; i < finances.length; i++){
+        let arrayMoney = finances[i][1];
+        totMoney.push(arrayMoney);
+    }
+
+    // Get total amount of values 
+    let total = totMoney.reduce((a, b) => a + b);
+
 
 // 3. The average of the changes in Profit/Losses over the entire period.
 
@@ -116,6 +130,7 @@ var finances = [
     console.log("Financial Analysis");
     console.log("----------------------------");
     console.log("Total Months: " + totMonths);
+    console.log("Total: " + total);
 
 
 // Output example
