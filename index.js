@@ -87,7 +87,7 @@ var finances = [
     ['Feb-2017', 671099]
 ];
 
-// The total number of months included in the dataset.
+// 1. The total number of months included in the dataset.
 
     // create a variable to save total months
 
@@ -98,17 +98,17 @@ var finances = [
         // push to variable                    
         
 
-// The net total amount of Profit/Losses over the entire period.
+// 2. The net total amount of Profit/Losses over the entire period.
 
-// The average of the changes in Profit/Losses over the entire period.
+// 3. The average of the changes in Profit/Losses over the entire period.
 
-// You will need to track what the total change in profits is from month to month and then find the average.
+    // You will need to track what the total change in profits is from month to month and then find the average.
 
-// (Total/Number of months)
+    // (Total/Number of months)
 
-// The greatest increase in profits (date and amount) over the entire period.
+// 4. The greatest increase in profits (date and amount) over the entire period.
 
-// The greatest decrease in losses (date and amount) over the entire period.
+// 5. The greatest decrease in losses (date and amount) over the entire period.
 
 
 // Output
