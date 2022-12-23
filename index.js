@@ -1,5 +1,5 @@
 var finances = [
-    ['Jan-2010', 867884],
+    ['Jan-2010', 867884], //finances[i][1]
     ['Feb-2010', 984655],
     ['Mar-2010', 322013],
     ['Apr-2010', -69417],
@@ -90,38 +90,51 @@ var finances = [
 // 1. The total number of months included in the dataset.
 
     // create a variable to save total months
-    let totMonths = 0;
+    let monthsTotal = 0;
 
     // loop the array to access the dates
     for (let i = 0; i < finances.length; i++){
-
-        totMonths++;
+        monthsTotal++;
 
     }
-        
-
+    
 // 2. The net total amount of Profit/Losses over the entire period.
 
     // Create variable to store total amount
-    let totMoney = [];
+    let netTotal = 0;
 
     // Loop through array and get each Profit/Losses value
     for (let i = 0; i < finances.length; i++){
-        let arrayMoney = finances[i][1];
-        totMoney.push(arrayMoney);
+        netTotal += finances[i][1];
     }
 
-    // Get total amount of values 
-    let total = totMoney.reduce((a, b) => a + b);
-
-
 // 3. The average of the changes in Profit/Losses over the entire period.
-
     // You will need to track what the total change in profits is from month to month and then find the average.
 
-    // (Total/Number of months)
+    
+    let monthlyChange = 0;
+    let monthlyChangeArr = [];
+
+    // Loop through the finances array starting at index 1
+    for (let i = 1; i < finances.length; i++){
+        // Get the change from current month minus previous month
+        monthlyChange = finances[i][1] - finances[i - 1][1];
+        monthlyChangeArr.push(monthlyChange);
+    }
+    // console.log(monthlyChangeArr);
+
+    // Loop through the monthly change array and sum all the values
+    let monthlyChangeSum = 0;
+    for (let i = 0; i < monthlyChangeArr.length; i++){
+        monthlyChangeSum += monthlyChangeArr[i];
+    }
+
+    let avgChange = monthlyChangeSum / monthlyChangeArr.length
+
+    // console.log(avgChange);
 
 // 4. The greatest increase in profits (date and amount) over the entire period.
+    
 
 // 5. The greatest decrease in losses (date and amount) over the entire period.
 
@@ -129,9 +142,9 @@ var finances = [
 // Output
     console.log("Financial Analysis");
     console.log("----------------------------");
-    console.log("Total Months: " + totMonths);
-    console.log("Total: " + total);
-
+    console.log("Total Months: " + monthsTotal);
+    console.log("Total: " + netTotal);
+    console.log("Average Change: " + avgChange);
 
 // Output example
 
