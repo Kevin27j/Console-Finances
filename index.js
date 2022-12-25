@@ -183,8 +183,6 @@ var finances = [
 
     // console.log(minProfitDate);
 
-
-
 // Output
     console.log("Financial Analysis");
     console.log("----------------------------");
@@ -194,6 +192,17 @@ var finances = [
     console.log("Greatest Increase in Profits: " + maxProfitDate + " (" + maxProfit + ")");
     console.log("Greatest Decrease in Profits: " + minProfitDate + " (" + minProfit + ")");
 
+//Dispaly content to the HTML page
+    document.getElementById("total-months").innerHTML = monthsTotal;
+    document.getElementById("total-amount").innerHTML = netTotal;
+    document.getElementById("average-change").innerHTML = avgChange;
+
+    document.getElementById("grt-increase-date").innerHTML = maxProfitDate;
+    document.getElementById("grt-increase").innerHTML = "(" + maxProfit + ")";
+
+    document.getElementById("grt-decrease-date").innerHTML = minProfitDate;
+    document.getElementById("grt-decrease").innerHTML = "(" + minProfit + ")";
+    
 // Output example
 
     // Financial Analysis
