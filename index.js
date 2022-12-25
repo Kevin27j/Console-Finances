@@ -95,8 +95,10 @@ var finances = [
     // loop the array to access the dates
     for (let i = 0; i < finances.length; i++){
         monthsTotal++;
-
+        
     }
+    // console.log(finances.length);
+    
     
 // 2. The net total amount of Profit/Losses over the entire period.
 
@@ -109,9 +111,8 @@ var finances = [
     }
 
 // 3. The average of the changes in Profit/Losses over the entire period.
-    // You will need to track what the total change in profits is from month to month and then find the average.
 
-    
+    // You will need to track what the total change in profits is from month to month and then find the average.
     let monthlyChange = 0;
     let monthlyChangeArr = [];
 
@@ -121,7 +122,7 @@ var finances = [
         monthlyChange = finances[i][1] - finances[i - 1][1];
         monthlyChangeArr.push(monthlyChange);
     }
-    // console.log(monthlyChangeArr);
+    //  console.log(monthlyChangeArr.length);
 
     // Loop through the monthly change array and sum all the values
     let monthlyChangeSum = 0;
@@ -129,22 +130,68 @@ var finances = [
         monthlyChangeSum += monthlyChangeArr[i];
     }
 
-    let avgChange = monthlyChangeSum / monthlyChangeArr.length
-
-    // console.log(avgChange);
+    let avgChange = monthlyChangeSum / monthlyChangeArr.length;
 
 // 4. The greatest increase in profits (date and amount) over the entire period.
+
+    let maxProfit = monthlyChangeArr[0];
+    let maxProfitIndex = 0;
+    let maxProfitDate = "";
+
+    // Loop through monthlyChangeArr
+    // Find the greatest increase amount
+    for (let i = 0; i < monthlyChangeArr.length; i++){
+        if (monthlyChangeArr[i] > maxProfit){
+            maxProfit = monthlyChangeArr[i];
+            maxProfitIndex = i;
+            maxProfitDate = monthlyChangeArr[i][0];  
+        }
+    }
+
+    // Loop through finances index
+    for (let x = 0; x < finances.length; x++){
+        // Find the same index as maxProfit in finances and extract the date from it
+        if(x === maxProfitIndex + 1){
+            maxProfitDate = finances[x][0];
+        }
+    }
+
+    // console.log(maxProfitDate)
     
 
 // 5. The greatest decrease in losses (date and amount) over the entire period.
+
+    let minProfit = monthlyChangeArr[0];
+    let minProfitIndex = 0;
+    let minProfitDate = "";
+
+    // Loop through monthlyChangeArr
+    // Find the greatest decrease amount
+    for (let i = 0; i < monthlyChangeArr.length; i++){
+        if (monthlyChangeArr[i] < minProfit){
+            minProfit = monthlyChangeArr[i];
+            minProfitIndex = i;
+        }
+    }
+
+    for (let x = 0; x < finances.length; x++){
+        if (x === minProfitIndex + 1){
+            minProfitDate = finances[x][0];
+        }
+    }
+
+    // console.log(minProfitDate);
+
 
 
 // Output
     console.log("Financial Analysis");
     console.log("----------------------------");
     console.log("Total Months: " + monthsTotal);
-    console.log("Total: " + netTotal);
-    console.log("Average Change: " + avgChange);
+    console.log("Total: $" + netTotal);
+    console.log("Average Change: $" + avgChange);
+    console.log("Greatest Increase in Profits: " + maxProfitDate + " (" + maxProfit + ")");
+    console.log("Greatest Decrease in Profits: " + minProfitDate + " (" + minProfit + ")");
 
 // Output example
 
