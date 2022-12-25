@@ -1,5 +1,5 @@
 var finances = [
-    ['Jan-2010', 867884], //finances[i][1]
+    ['Jan-2010', 867884],
     ['Feb-2010', 984655],
     ['Mar-2010', 322013],
     ['Apr-2010', -69417],
@@ -94,6 +94,7 @@ var finances = [
 
     // loop the array to access the dates
     for (let i = 0; i < finances.length; i++){
+        // Count each sub Array
         monthsTotal++;
         
     }
@@ -107,6 +108,7 @@ var finances = [
 
     // Loop through array and get each Profit/Losses value
     for (let i = 0; i < finances.length; i++){
+        // Sum all the Profit/Losses value
         netTotal += finances[i][1];
     }
 
@@ -120,6 +122,7 @@ var finances = [
     for (let i = 1; i < finances.length; i++){
         // Get the change from current month minus previous month
         monthlyChange = finances[i][1] - finances[i - 1][1];
+        // Push to the empty array
         monthlyChangeArr.push(monthlyChange);
     }
     //  console.log(monthlyChangeArr.length);
@@ -129,7 +132,6 @@ var finances = [
     for (let i = 0; i < monthlyChangeArr.length; i++){
         monthlyChangeSum += monthlyChangeArr[i];
     }
-
     let avgChange = monthlyChangeSum / monthlyChangeArr.length;
 
 // 4. The greatest increase in profits (date and amount) over the entire period.
@@ -144,7 +146,6 @@ var finances = [
         if (monthlyChangeArr[i] > maxProfit){
             maxProfit = monthlyChangeArr[i];
             maxProfitIndex = i;
-            maxProfitDate = monthlyChangeArr[i][0];  
         }
     }
 
