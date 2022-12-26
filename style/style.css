@@ -11,3 +11,22 @@ body {
     background-color: bisque;
 }
 
+.analysis-container {
+    margin: 0 auto;
+    margin-top: 10%;
+    width: 35%;
+    height: 400px;
+    min-height: fit-content;
+    border: solid black;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.dot-line {
+    border-bottom: 2px dotted black;
+    margin: 1rem 0;
+}
+
+.sub-title {
+    margin: 25px 5px;
+}
